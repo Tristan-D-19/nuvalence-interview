@@ -2,6 +2,8 @@ import ContactDetail from './Index.jsx'
 import { render, screen,  fireEvent, cleanup } from '@testing-library/react';
 
 const contact = {firstName: 'Lloyd', lastName: 'Jensen', phoneNumber: '041-650-0931', cell: '081-168-3137'}
+
+describe('Contact Detail', () => {
 it('Should render Contact Details correctly', async () => {
  render(<ContactDetail contact={contact}/>);
  const firstName = await screen.findByText("Lloyd")
@@ -27,7 +29,8 @@ it('Should Change field value in the input',async ()=> {
 
 
   test('Should save an edited contact', async ()=> {
-    render(<ContactDetail contact={contact} editMode={true}/>);
+
+    const {rerender} = render(<ContactDetail contact={contact} editMode={true} save={jest.fn()}/>);
     const inputFields = await screen.findAllByTestId('contact-details-input')
     fireEvent.change(inputFields[0], {target: {value: 'Sam'}})
     fireEvent.change(inputFields[1], {target: {value: 'Smith'}})
@@ -40,6 +43,8 @@ it('Should Change field value in the input',async ()=> {
         bubbles: true,
         cancelable: true,
       }))
+
+      rerender(<ContactDetail contact={contact} editMode={false} save={jest.fn()}/>);
       const firstName = await screen.findByText("Sam")
       const lastName = await screen.findByText("Smith")
       const phone = await screen.findByText("18884556000")
@@ -48,5 +53,5 @@ it('Should Change field value in the input',async ()=> {
       expect(phone).toBeVisible();
 
 })
-
+});
   afterEach(cleanup)

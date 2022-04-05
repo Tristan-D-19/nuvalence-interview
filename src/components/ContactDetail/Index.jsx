@@ -7,10 +7,9 @@ const ContactDetail = ({ contact, editMode, save }) => {
   const [lastName, setLastName] = useState(contact.lastName);
   const [phoneNumber, setPhoneNumber] = useState(contact.phoneNumber);
 
-  useEffect(()=> {
-
-
-  }, [firstName, lastName, phoneNumber])
+  function saveContact(contact){
+    save(contact)
+    }
   return (
     <Form>
       <Container>
@@ -65,7 +64,7 @@ const ContactDetail = ({ contact, editMode, save }) => {
        {editMode && <Row  className='mt-4'>
        <Col> 
        <Button theme="info"  data-testid="save-button" onClick={()=> {
-                save({firstName, lastName, phoneNumber, id: contact.id})
+                saveContact({firstName, lastName, phoneNumber, id: contact.id})
             }}>Save</Button>
             </Col>
         </Row>}

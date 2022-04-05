@@ -16,7 +16,7 @@ const contactsResponse = rest.get(API_BASE_URL, (req, res, ctx)=>
 const handlers = [contactsResponse]
 
 const server = new setupServer(...handlers)
-
+describe('Contact List', () => {
 test('it should display correct contact', async ()=> {
     render(<ContactList/>);
     const contactItem = await screen.findByText("Lloyd Jensen")
@@ -72,7 +72,7 @@ test('Should update search field with input value', async ()=> {
     fireEvent.change(search, { target: { value: 'Lloyd' } })
     expect(search.value).toBe('Lloyd')
 })
-
+});
 
 
 
