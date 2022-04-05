@@ -1,70 +1,35 @@
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
 
 In the project directory, you can run:
 
+# Local Development 
+## Run the following command to run the app locally on port 3000
 ### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
+# Testing 
+## run the following command to run the test suite
 ### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
+# Build 
 ### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+# Deployment
+## To run the app as a docker container you can run the following command to build: 
+### `docker build -t address-book` 
+ 
+## To run as a docker container
+### `docker run --rm -it -p 8080:80 address-book`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+# Summary
 
-### `npm run eject`
+For this assignment I wanted to try a new library, shard react and I wanted to make everything feel responsive and inclusive. I approached this project using TDD to ensure quality. I used to react testing library as it had all of the functionality I needed and I tested as an end user making sure the experience was what the app intended. 
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+I used one route and a modal for accessing the client details. I pulled the users from the api (200 users), store them in local storage for persistence across page refreshes, and I serialized/mapped to users to a data format that matches my application. Once the data was properly marshalled I used a list to display the contacts by their name and using an onclick to open a modal with the contact details. I also added editing functionality to the contact detail page. I added a search box to search for contacts using the query in regex test. 
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Overall the implementation was minimal and I would have liked to add in profile photos on each contact. If i was given more time I would have liked to styled the app more and give it some life and some voip mocking to really make the app feel like a phone.  
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Also given more time I would have like to test this app out in app engine. 

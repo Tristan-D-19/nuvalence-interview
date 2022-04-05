@@ -1,0 +1,9 @@
+runtime: custom
+env: flex
+service: address-book-react
+threadsafe: true
+
+env_variables:
+  INLINE_RUNTIME_CHUNK: false
+  GENERATE_SOURCEMAP: false
+  SKIP_PREFLIGHT_CHECK: true

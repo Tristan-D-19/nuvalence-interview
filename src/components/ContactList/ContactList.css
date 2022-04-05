@@ -1,0 +1,21 @@
+#contact-list{
+    height: 85vh;
+    overflow-y: scroll;
+}
+
+.edit-icon{
+    position: absolute;
+    right: 0;
+}
+
+
+@media only screen and (max-width: 280px) {
+    .edit-icon{
+        position: relative;
+        right: 0;
+    }
+}
+
+.header-text{
+    font-size:4vw
+}
