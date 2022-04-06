@@ -9,11 +9,12 @@ In the project directory, you can run:
 
 
 # Testing 
-## run the following command to run the test suite
+Run the following command to run the test suite
 ### `npm test`
 
 
-# Build 
+# Build
+Run the following to build production optimized code 
 ### `npm run build`
 
 
@@ -22,7 +23,27 @@ In the project directory, you can run:
 ### `docker build -t address-book` 
  
 ## To run as a docker container
-### `docker run --rm -it -p 8080:80 address-book`
+### `docker run --rm -it -p 8080:80 -e PORT=8000 address-book`
+
+## Google Cloud Buld
+To build for cloud, create a project on GCP Console, note the project id for the upcoming steps, then enable the following: 
+
+* Cloud Run API
+* Google Container Registry API
+* Cloud Build API
+
+Once finished enabling the apis, run the following to use cloud build to build and register the container in the gcp cloud registry
+
+
+### `gcloud builds submit --tag gcr.io/[YOUR_PROJECT_ID]/address-book`
+
+Once built you can run 
+### `gcloud run deploy --image gcr.io/[YOUR_PROJECT_ID]/address-book --platform managed`
+
+Finally navigate to the url + '/index.html' provided upon successful deployment
+
+My sample link is: 
+https://nuvalence-interview-7fwtbky62a-ue.a.run.app/index.html
 
 # Summary
 
@@ -32,4 +53,3 @@ I used one route and a modal for accessing the client details. I pulled the user
 
 Overall the implementation was minimal and I would have liked to add in profile photos on each contact. If i was given more time I would have liked to styled the app more and give it some life and some voip mocking to really make the app feel like a phone.  
 
-Also given more time I would have like to test this app out in app engine. 

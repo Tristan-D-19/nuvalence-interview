@@ -1,6 +1,6 @@
 runtime: custom
 env: flex
-service: address-book-react
+service: default
 threadsafe: true
 
 env_variables:

@@ -1,16 +1,11 @@
-import { render, screen } from '@testing-library/react';
-import App from './App';
-import { shallow } from 'enzyme';
+import { render, screen } from "@testing-library/react";
+import App from "./App";
+import { shallow } from "enzyme";
 
-
-describe('MyComponent', () => {
+describe("MyComponent", () => {
   it('should render correctly in "debug" mode', () => {
     const component = shallow(<App debug />);
-  
+
     expect(component).toMatchSnapshot();
   });
-
- 
-
 });
-
